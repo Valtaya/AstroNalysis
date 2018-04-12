@@ -1,0 +1,7 @@
+C:\Users\NOO\source\repos\DataAnalysis\DataAnalysis\bin\Debug\DataAnalysis.exe.config
+C:\Users\NOO\source\repos\DataAnalysis\DataAnalysis\bin\Debug\DataAnalysis.exe
+C:\Users\NOO\source\repos\DataAnalysis\DataAnalysis\bin\Debug\DataAnalysis.pdb
+C:\Users\NOO\source\repos\DataAnalysis\DataAnalysis\obj\Debug\DataAnalysis.csprojResolveAssemblyReference.cache
+C:\Users\NOO\source\repos\DataAnalysis\DataAnalysis\obj\Debug\DataAnalysis.csproj.CoreCompileInputs.cache
+C:\Users\NOO\source\repos\DataAnalysis\DataAnalysis\obj\Debug\DataAnalysis.exe
+C:\Users\NOO\source\repos\DataAnalysis\DataAnalysis\obj\Debug\DataAnalysis.pdb
