@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
+using System.Data;
 
 namespace DataAnalysis
 {
@@ -18,6 +19,14 @@ namespace DataAnalysis
         public void CloseConnection()
         {
             conn.Close();
+        }
+        public DataTable ReadValue()
+        {
+            DataTable dt = new DataTable();
+            MySqlDataAdapter da = new MySqlDataAdapter("select * from ilofar", conn);
+
+            da.Fill(dt);
+            return dt;
         }
     }
 }
