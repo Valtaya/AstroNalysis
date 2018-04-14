@@ -25,7 +25,7 @@ namespace DataAnalysis
         public DataTable ReadValue()
         {
             DataTable dt = new DataTable();
-            MySqlDataAdapter da = new MySqlDataAdapter("select * from ilofar", conn);
+            MySqlDataAdapter da = new MySqlDataAdapter("select ID, Name from ilofar", conn);
 
             da.Fill(dt);
             return dt;

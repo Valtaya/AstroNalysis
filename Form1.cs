@@ -42,8 +42,11 @@ namespace DataAnalysis
         private void run_cmd1()
         {
             string fileName = @"C:\\Users\\NOO\\KAIRA-DATA\\plot_1d_spectrum.py";
+            string dataName = @"C:\\Users\\NOO\\KAIRA-DATA\\20140430_144604_sst_rcu000.dat";
+            //string test = "SELECT Data FROM ilofar WHERE ID=" + ;
+            
 
-            Process.Start("CMD.exe", "/C" + fileName + " C:\\Users\\NOO\\KAIRA-DATA\\20140430_144604_sst_rcu000.dat");
+            Process.Start("CMD.exe", "/C" + fileName + " " + dataName);
             
             
             

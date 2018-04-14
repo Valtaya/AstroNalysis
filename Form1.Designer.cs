@@ -43,11 +43,11 @@ namespace DataAnalysis
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 0);
+            this.dataGridView1.Location = new System.Drawing.Point(12, 12);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(503, 215);
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridView1.Size = new System.Drawing.Size(262, 215);
             this.dataGridView1.TabIndex = 0;
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // dataGridView2
             // 
@@ -59,7 +59,7 @@ namespace DataAnalysis
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(223, 221);
+            this.button1.Location = new System.Drawing.Point(105, 233);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 2;
@@ -69,7 +69,7 @@ namespace DataAnalysis
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(223, 275);
+            this.button2.Location = new System.Drawing.Point(12, 280);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 3;
@@ -79,7 +79,7 @@ namespace DataAnalysis
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(223, 332);
+            this.button3.Location = new System.Drawing.Point(199, 280);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(75, 23);
             this.button3.TabIndex = 4;
@@ -91,7 +91,7 @@ namespace DataAnalysis
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(504, 418);
+            this.ClientSize = new System.Drawing.Size(286, 325);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
@@ -107,6 +107,10 @@ namespace DataAnalysis
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+        private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             throw new NotImplementedException();
         }
