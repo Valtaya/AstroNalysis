@@ -46,8 +46,9 @@ namespace DataAnalysis
             this.dataGridView1.Location = new System.Drawing.Point(12, 12);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(262, 215);
+            this.dataGridView1.Size = new System.Drawing.Size(304, 215);
             this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick_1);
             // 
             // dataGridView2
             // 
@@ -59,7 +60,7 @@ namespace DataAnalysis
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(105, 233);
+            this.button1.Location = new System.Drawing.Point(129, 233);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 2;
@@ -79,7 +80,7 @@ namespace DataAnalysis
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(199, 280);
+            this.button3.Location = new System.Drawing.Point(241, 280);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(75, 23);
             this.button3.TabIndex = 4;
@@ -91,7 +92,7 @@ namespace DataAnalysis
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(286, 325);
+            this.ClientSize = new System.Drawing.Size(328, 325);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);

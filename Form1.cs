@@ -42,35 +42,19 @@ namespace DataAnalysis
         private void run_cmd1()
         {
             string fileName = @"C:\\Users\\NOO\\KAIRA-DATA\\plot_1d_spectrum.py";
-            string dataName = @"C:\\Users\\NOO\\KAIRA-DATA\\20140430_144604_sst_rcu000.dat";
-            //string test = "SELECT Data FROM ilofar WHERE ID=" + ;
-            
+            string dataName = dataGridView1.CurrentRow.Cells["Data"].FormattedValue.ToString();
 
             Process.Start("CMD.exe", "/C" + fileName + " " + dataName);
             
-            
-            
-            /*Process p = new Process();
-            p.StartInfo = new ProcessStartInfo("CMD.exe", "/C" + fileName + " 20140430_144604_sst_rcu000.dat")
-            {
-                RedirectStandardOutput = true,
-                UseShellExecute = false,
-                CreateNoWindow = true
-            };
-            p.Start();
 
-            string output = p.StandardOutput.ReadToEnd();
-            p.WaitForExit();
-
-            Console.WriteLine(output);
-
-            Console.ReadLine();*/
         }
         private void run_cmd2()
         {
             string fileName = @"C:\\Users\\NOO\\KAIRA-DATA\\plot_2d_spectrum.py";
+            string dataName = dataGridView1.CurrentRow.Cells["Data"].FormattedValue.ToString();
 
-            Process.Start("CMD.exe", "/C" + fileName + " C:\\Users\\NOO\\KAIRA-DATA\\20140430_144604_sst_rcu000.dat");
+
+            Process.Start("CMD.exe", "/K" + fileName + " " + dataName);
         }
         //1D Plot:
         private void button2_Click(object sender, EventArgs e)
@@ -81,6 +65,11 @@ namespace DataAnalysis
         private void button3_Click(object sender, EventArgs e)
         {
             run_cmd2();
+        }
+
+        private void dataGridView1_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }
