@@ -42,19 +42,35 @@ namespace DataAnalysis
         private void run_cmd1()
         {
             string fileName = @"C:\\Users\\NOO\\KAIRA-DATA\\plot_1d_spectrum.py";
-            string dataName = dataGridView1.CurrentRow.Cells["Data"].FormattedValue.ToString();
+            //string dataName = dataGridView1.CurrentRow.Cells["Data"].FormattedValue.ToString();
 
-            Process.Start("CMD.exe", "/C" + fileName + " " + dataName);
-            
+            if (string.IsNullOrEmpty(textBox1.Text))
+            {
+                string dataName = dataGridView1.CurrentRow.Cells["Data"].FormattedValue.ToString();
+                Process.Start("CMD.exe", "/K" + fileName + " " + dataName);
+            }
+            else
+            {
+                Process.Start("CMD.exe", "/K" + fileName + " " + textBox1.Text);
+            }
+
 
         }
         private void run_cmd2()
         {
             string fileName = @"C:\\Users\\NOO\\KAIRA-DATA\\plot_2d_spectrum.py";
-            string dataName = dataGridView1.CurrentRow.Cells["Data"].FormattedValue.ToString();
+            //string dataName = dataGridView1.CurrentRow.Cells["Data"].FormattedValue.ToString();
 
-
-            Process.Start("CMD.exe", "/K" + fileName + " " + dataName);
+            if (string.IsNullOrEmpty(textBox1.Text))
+            {
+                string dataName = dataGridView1.CurrentRow.Cells["Data"].FormattedValue.ToString();
+                Process.Start("CMD.exe", "/K" + fileName + " " + dataName);
+            }
+            else
+            {
+                Process.Start("CMD.exe", "/K" + fileName + " " + textBox1.Text);
+            }
+            //Process.Start("CMD.exe", "/K" + fileName + " " + dataName);
         }
         //1D Plot:
         private void button2_Click(object sender, EventArgs e)
@@ -70,6 +86,50 @@ namespace DataAnalysis
         private void dataGridView1_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+        //This entry describes a control that "displays a dialog box that prompts the user to open a file"
+        private void openFileDialog1_FileOk(object sender, CancelEventArgs e)
+        {
+
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            /*// Show the dialog and get result.
+            DialogResult result = openFileDialog1.ShowDialog();
+            if (result == DialogResult.OK) // Test result.
+            {
+            }
+            Console.WriteLine(result); // <-- For debugging use.*/
+            int size = -1;
+            DialogResult result = openFileDialog1.ShowDialog(); // Show the dialog.
+            if (result == DialogResult.OK) // Test result.
+            {
+                string file = openFileDialog1.FileName;
+                try
+                {
+                    //display path in text box
+                    textBox1.Text = openFileDialog1.FileName;
+                    string text = File.ReadAllText(file);
+                    size = text.Length;
+                }
+                catch (IOException)
+                {
+                }
+            }
+            Console.WriteLine(size); // <-- Shows file size in debugging mode.
+            Console.WriteLine(result); // <-- For debugging use.
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            //test
+            Console.WriteLine(textBox1.Text);
         }
     }
 }
