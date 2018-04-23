@@ -1,7 +1,9 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Diagnostics;
 using System.Drawing;
 using System.IO;
@@ -95,12 +97,6 @@ namespace DataAnalysis
 
         private void button4_Click(object sender, EventArgs e)
         {
-            /*// Show the dialog and get result.
-            DialogResult result = openFileDialog1.ShowDialog();
-            if (result == DialogResult.OK) // Test result.
-            {
-            }
-            Console.WriteLine(result); // <-- For debugging use.*/
             int size = -1;
             DialogResult result = openFileDialog1.ShowDialog(); // Show the dialog.
             if (result == DialogResult.OK) // Test result.
@@ -130,6 +126,26 @@ namespace DataAnalysis
         {
             //test
             Console.WriteLine(textBox1.Text);
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            string text = textBox2.Text;
+            //create DataTable object:
+            DataTable dt = new DataTable();
+            //create an instance from DataBaseConnection() class:
+            DataBaseConnection DB = new DataBaseConnection();
+
+            //call to the OpenConnection() method:
+            DB.OpenConnection();
+            dt = DB.Search(text);
+            dataGridView1.DataSource = dt;
+            DB.CloseConnection();
+        }
+
+        public void textBox2_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
