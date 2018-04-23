@@ -26,14 +26,14 @@ namespace DataAnalysis
         {
             DataTable dt = new DataTable();
             
-            MySqlDataAdapter da = new MySqlDataAdapter("select* from ilofar", conn);
+            MySqlDataAdapter da = new MySqlDataAdapter("select ID, Name, File , Data from ilofar", conn);
 
             da.Fill(dt);
             return dt;
         }
         public DataTable Search(string text)
         {
-            string search = "SELECT ID, Name, Data FROM ilofar WHERE ID LIKE '%" + text + "%' OR Name LIKE '%" + text + "%' OR Data LIKE '%" + text + "%'";
+            string search = "SELECT ID, Name, File, Data FROM ilofar WHERE ID LIKE '%" + text + "%' OR Name LIKE '%" + text + "%' OR Data LIKE '%" + text + "%'";
             DataTable dt = new DataTable();
 
             MySqlDataAdapter da = new MySqlDataAdapter(search, conn);

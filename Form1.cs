@@ -8,6 +8,7 @@ using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -94,7 +95,7 @@ namespace DataAnalysis
         {
 
         }
-
+        //browse
         private void button4_Click(object sender, EventArgs e)
         {
             int size = -1;
@@ -119,15 +120,36 @@ namespace DataAnalysis
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
+            /*textBox1.KeyPress += (sndr, ev) =>
+            {
+                if (ev.KeyChar.Equals((char)13))
+                {
+                    button4_Click(sender, e);// call your method for action on enter
+                    ev.Handled = true; // suppress default handling
+                   
+                }
+            };*/
+            
 
         }
-
+        //download
         private void button5_Click(object sender, EventArgs e)
         {
-            //test
-            Console.WriteLine(textBox1.Text);
-        }
+            using (var client = new WebClient())
+            {
+                string desktopPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+                WebClient wc = new WebClient();
+                string path = dataGridView1.CurrentRow.Cells["Data"].FormattedValue.ToString();
+                string file = dataGridView1.CurrentRow.Cells["File"].FormattedValue.ToString();
 
+                client.DownloadFile(path, desktopPath + "/" + file);
+                
+            }
+            MessageBox.Show("Download complete");
+
+
+        }
+        //search
         private void button6_Click(object sender, EventArgs e)
         {
             string text = textBox2.Text;
@@ -145,7 +167,16 @@ namespace DataAnalysis
 
         public void textBox2_TextChanged(object sender, EventArgs e)
         {
+            //allow enter key to call button press for search
+            textBox2.KeyPress += (sndr, ev) =>
+            {
+                if (ev.KeyChar.Equals((char)13))
+                {
+                    button6_Click(sender, e);// call your method for action on enter
+                    ev.Handled = true; // suppress default handling
 
+                }
+            };
         }
     }
 }
