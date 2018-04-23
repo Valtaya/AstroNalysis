@@ -20,6 +20,9 @@ namespace DataAnalysis
         public Form1()
         {
             InitializeComponent();
+            this.AllowDrop = true;
+            this.DragEnter += new DragEventHandler(Form1_DragEnter);
+            this.DragDrop += new DragEventHandler(Form1_DragDrop);
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -73,7 +76,7 @@ namespace DataAnalysis
             {
                 Process.Start("CMD.exe", "/K" + fileName + " " + textBox1.Text);
             }
-            //Process.Start("CMD.exe", "/K" + fileName + " " + dataName);
+            
         }
         //1D Plot:
         private void button2_Click(object sender, EventArgs e)
@@ -117,7 +120,7 @@ namespace DataAnalysis
             Console.WriteLine(size); // <-- Shows file size in debugging mode.
             Console.WriteLine(result); // <-- For debugging use.
         }
-
+        //browse textbox
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
             /*textBox1.KeyPress += (sndr, ev) =>
@@ -164,7 +167,7 @@ namespace DataAnalysis
             dataGridView1.DataSource = dt;
             DB.CloseConnection();
         }
-
+        //search textbox
         public void textBox2_TextChanged(object sender, EventArgs e)
         {
             //allow enter key to call button press for search
@@ -177,6 +180,27 @@ namespace DataAnalysis
 
                 }
             };
+        }
+        private void textBoxFile_DragOver(object sender, DragEventArgs e)
+        {
+            if (e.Data.GetDataPresent(DataFormats.FileDrop))
+                e.Effect = DragDropEffects.Copy;
+            else
+                e.Effect = DragDropEffects.None;
+        }
+        void Form1_DragEnter(object sender, DragEventArgs e)
+        {
+            if (e.Data.GetDataPresent(DataFormats.FileDrop))
+                e.Effect = DragDropEffects.Copy;
+        }
+
+        void Form1_DragDrop(object sender, DragEventArgs e)
+        {
+            string[] files = (string[])e.Data.GetData(DataFormats.FileDrop);
+            if (files != null && files.Length != 0)
+            {
+                textBox1.Text = files[0];
+            }
         }
     }
 }
